@@ -16,16 +16,16 @@ function InfoBar() {
 
   return (
     <div className={`bg-black text-white overflow-hidden transition-all duration-500 ${isOpen ? "opacity-100 max-h-9.5" : "opacity-0 max-h-0"}`}>
-      <div className="max-w-310 mx-auto flex justify-between items-center py-2">
-        <div className="w-3" aria-hidden="true"></div>
-        <p className="font-light">
+      <div className="max-w-310 mx-auto flex justify-center xl:justify-between items-center py-2 px-1 xl:px-0">
+        <div className="w-5 hidden xl:block" aria-hidden="true"></div>
+        <p className="font-light text-xs xl:text-sm">
           Sign up and get 20% off to your first order.{" "}
           <a className="underline font-medium hover-fade" href="">
             Sign Up Now
           </a>
         </p>
 
-        <button type="button" onClick={handleClick} className="w-5 h-5 flex items-center justify-center hover-fade">
+        <button type="button" onClick={handleClick} className="w-5 h-5 hidden xl:flex items-center justify-center hover-fade">
           <IoClose className="text-base" />
         </button>
       </div>
