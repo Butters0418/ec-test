@@ -1,5 +1,6 @@
 import type { ProductType } from "@/types/productType";
 import { LiaStarSolid, LiaStarHalf } from "react-icons/lia";
+import { FiShoppingCart } from "react-icons/fi";
 
 interface ProductProps {
   product: ProductType;
@@ -14,8 +15,9 @@ function Product({ product }: ProductProps) {
 
   return (
     <article>
-      <button type="button" className="group aspect-295/298 w-full overflow-hidden rounded-[14px] xl:rounded-[20px] relative">
-        <img src={cover} alt={title} className="h-full w-full object-cover hover:scale-105 transition-transform duration-300" />
+      <button type="button" className="group aspect-295/298 w-full overflow-hidden rounded-[14px] xl:rounded-[20px] relative" onClick={() => console.log("add to cart")}>
+        <img src={cover} alt={title} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <FiShoppingCart className="absolute bottom-4 right-4 translate-y-2 opacity-0 text-black w-6 h-6 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300" />
       </button>
 
       {/* 品名 */}
@@ -39,6 +41,7 @@ function Product({ product }: ProductProps) {
           {score.toFixed(1)}/<span className="opacity-60">5</span>
         </p>
       </div>
+
       {/* price */}
       <div className="mt-0.5 xl:mt-2 flex items-center gap-1.5 xl:gap-2.5">
         <p className="text-xl xl:text-2xl font-bold">${discountedPrice.toLocaleString()}</p>
