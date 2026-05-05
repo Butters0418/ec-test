@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import InfoBar from "./InfoBar";
-import logo from "../../assets/logo.svg";
+import logo from "@/assets/logo.svg";
 
 function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white">
       <InfoBar />
+
       <div className="max-w-310 mx-auto px-4 xl:px-0">
         <div className="w-full flex justify-between items-center py-5 xl:pt-10 xl:pb-8 border-b border-black/10">
           <Link to="/">
