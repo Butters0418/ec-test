@@ -3,7 +3,6 @@ import { GoChevronRight } from "react-icons/go";
 
 function Breadcrumb() {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <nav className=" pt-5 pb-3 xl:py-6">
       <ul className="flex text-sm xl:text-base font-light text-black items-center">

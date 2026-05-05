@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import InfoBar from "./InfoBar";
 import logo from "@/assets/logo.svg";
+import useCartStore from "@/stores/useCartStore";
 
 function Header() {
+  const count = useCartStore((state) => state.cartItems.length);
   return (
     <header className="sticky top-0 z-50 bg-white">
       <InfoBar />
@@ -15,7 +17,8 @@ function Header() {
           </Link>
           <Link to="/cart" className="mr-4 relative">
             <FiShoppingCart className="text-2xl" />
-            <span className="absolute -bottom-1 -right-3 bg-[#FF3333] text-white rounded-full w-4.5 h-4.5 text-xs flex items-center justify-center">22</span>
+
+            {!!count && <span className="absolute -top-1 -right-3 bg-[#FF3333] text-white rounded-full w-4.5 h-4.5 text-xs flex items-center justify-center">{count}</span>}
           </Link>
         </div>
       </div>

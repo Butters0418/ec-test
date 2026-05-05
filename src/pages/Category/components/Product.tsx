@@ -1,12 +1,14 @@
 import type { ProductType } from "@/types/productType";
 import { LiaStarSolid, LiaStarHalf } from "react-icons/lia";
 import { FiShoppingCart } from "react-icons/fi";
+import useCartStore from "@/stores/useCartStore";
 
 interface ProductProps {
   product: ProductType;
 }
 
 function Product({ product }: ProductProps) {
+  const addItem = useCartStore((state) => state.addItem);
   const { title, price, score, cover, discount } = product;
   const floorScore = Math.floor(score);
   const hasHalfStar = score % 1 >= 0.5;
@@ -15,7 +17,7 @@ function Product({ product }: ProductProps) {
 
   return (
     <article>
-      <button type="button" className="group aspect-295/298 w-full overflow-hidden rounded-[14px] xl:rounded-[20px] relative" onClick={() => console.log("add to cart")}>
+      <button type="button" className="group aspect-295/298 w-full overflow-hidden rounded-[14px] xl:rounded-[20px] relative" onClick={() => addItem(product)}>
         <img src={cover} alt={title} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" />
         <FiShoppingCart className="absolute bottom-4 right-4 translate-y-2 opacity-0 text-black w-6 h-6 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300" />
       </button>
