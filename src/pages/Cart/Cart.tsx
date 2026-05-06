@@ -34,9 +34,9 @@ function Cart() {
       <div className="grid grid-col-1 xl:grid-cols-12 gap-5 mt-5 xl:mt-6 items-start">
         {cartItems.length === 0 ? (
           <div className="bg-surface col-span-12 py-12 rounded-[20px] flex flex-col items-center gap-4">
-            <p className="text-center text-xl xl:text-2xl font-normal">您的購物車為空</p>
+            <p className="text-center text-xl xl:text-2xl font-normal">Your cart is empty.</p>
             <Link to="/" className="hover-fade text-gray-500 flex justify-center items-center group">
-              去逛逛 <MdOutlineArrowRightAlt className="ml-1 group-hover:translate-x-0.5 duration-100" />
+              Shop now <MdOutlineArrowRightAlt className="ml-1 group-hover:translate-x-0.5 duration-100" />
             </Link>
           </div>
         ) : (
@@ -61,20 +61,20 @@ function Cart() {
               <div className="mt-6 space-y-5 text-base xl:text-xl font-extralight">
                 <p className="flex justify-between items-center">
                   <span className="text-black/60">Subtotal</span>
-                  <span className="font-medium">${subtotal.toLocaleString()}</span>
+                  <span className="font-bold">${subtotal.toLocaleString()}</span>
                 </p>
                 <p className="flex justify-between items-center">
                   <span className="text-black/60">Discount</span>
-                  <span className="font-medium text-danger">-${discountAmount.toLocaleString()}</span>
+                  <span className="font-bold text-danger">-${discountAmount.toLocaleString()}</span>
                 </p>
                 <p className="flex justify-between items-center">
                   <span className="text-black/60">Delivery Fee</span>
-                  <span className="font-medium">$15</span>
+                  <span className="font-bold">$15</span>
                 </p>
                 <hr className="border-black/10" />
                 <p className="flex justify-between items-center">
                   <span>Total</span>
-                  <span className="text-xl xl:text-2xl font-medium">${totalPrice.toLocaleString()}</span>
+                  <span className="text-xl xl:text-2xl font-bold">${totalPrice.toLocaleString()}</span>
                 </p>
               </div>
               <button

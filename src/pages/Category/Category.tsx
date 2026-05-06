@@ -47,7 +47,7 @@ function Category() {
         </div>
 
         {!isLoading && products.length === 0 ? (
-          <p className="mt-7 xl:mt-4 text-black/50">無符合商品</p>
+          <p className="mt-7 xl:mt-4 text-black/50">No results found</p>
         ) : (
           <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-3.5 gap-y-6 md:gap-x-5 md:gap-y-9 mt-7 xl:mt-4">
             {isLoading ? Array.from({ length: 5 }).map((_, index) => <ProductSkeleton key={index} />) : products.map((product) => <Product key={product.title} product={product} />)}
