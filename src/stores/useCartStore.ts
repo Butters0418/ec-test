@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { ProductType, CartProductType } from "@/types/productType";
+import type { ProductType, CartItemType } from "@/types/productType";
 interface CartStore {
-  cartItems: CartProductType[];
+  cartItems: CartItemType[];
   addItem: (product: ProductType) => void;
 
   clearCart: () => void;
