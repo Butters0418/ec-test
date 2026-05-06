@@ -1,7 +1,7 @@
-import type { ProductType } from "@/types/productType";
-import { LiaStarSolid, LiaStarHalf } from "react-icons/lia";
 import { FiShoppingCart } from "react-icons/fi";
+import { LiaStarSolid, LiaStarHalf } from "react-icons/lia";
 import useCartStore from "@/stores/useCartStore";
+import type { ProductType } from "@/types/productType";
 
 interface ProductProps {
   product: ProductType;

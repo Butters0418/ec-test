@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
+import { FiArrowRight } from "react-icons/fi";
+import { MdOutlineArrowRightAlt } from "react-icons/md";
 import yourcart from "@/assets/yourcart.svg";
 import useCartStore from "@/stores/useCartStore";
-import { FiArrowRight } from "react-icons/fi";
 import CartItem from "./components/CartItem";
-import { MdOutlineArrowRightAlt } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 function Cart() {
   const cartItems = useCartStore((state) => state.cartItems);

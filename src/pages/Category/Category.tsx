@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Product from "./components/Product";
-import ProductSkeleton from "./components/ProductSkeleton";
 import { LuSlidersVertical } from "react-icons/lu";
 import type { ProductType } from "@/types/productType";
+import Product from "./components/Product";
+import ProductSkeleton from "./components/ProductSkeleton";
 
 function Category() {
   const [products, setProducts] = useState<ProductType[]>([]);

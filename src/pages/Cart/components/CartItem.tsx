@@ -1,7 +1,7 @@
-import type { CartItemType } from "@/types/productType";
-import { PiTrashFill } from "react-icons/pi";
 import { FiMinus, FiPlus } from "react-icons/fi";
+import { PiTrashFill } from "react-icons/pi";
 import useCartStore from "@/stores/useCartStore";
+import type { CartItemType } from "@/types/productType";
 
 interface CartItemProps {
   item: CartItemType;

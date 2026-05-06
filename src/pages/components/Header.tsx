@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
-import InfoBar from "./InfoBar";
 import logo from "@/assets/logo.svg";
 import useCartStore from "@/stores/useCartStore";
+import InfoBar from "./InfoBar";
 
 function Header() {
   const count = useCartStore((state) => state.cartItems.length);
