@@ -3,6 +3,7 @@ import MainLayout from "../pages/MainLayout";
 import Category from "../pages/Category/Category";
 import Cart from "../pages/Cart/Cart";
 import NotFound from "../pages/NotFound";
+
 export default function AppRoutes() {
   return (
     <BrowserRouter>

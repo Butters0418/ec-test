@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --color-danger: #ff3333;
+  --color-surface: #f0f0f0;
+  --color-star: #ffc633;
+}
+
 @layer utilities {
   .hover-fade {
     @apply hover:opacity-70 transition-opacity duration-300;
