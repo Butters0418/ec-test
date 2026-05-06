@@ -7,7 +7,7 @@ import useCartStore from "@/stores/useCartStore";
 function Header() {
   const count = useCartStore((state) => state.cartItems.length);
   return (
-    <header className="sticky top-0 z-50 bg-white">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md">
       <InfoBar />
 
       <div className="max-w-310 mx-auto px-4 xl:px-0">
@@ -18,7 +18,7 @@ function Header() {
           <Link to="/cart" className="mr-4 relative">
             <FiShoppingCart className="text-2xl" />
 
-            {!!count && <span className="absolute -top-1 -right-3 bg-[#FF3333] text-white rounded-full w-4.5 h-4.5 text-xs flex items-center justify-center">{count}</span>}
+            {!!count && <span className="absolute -top-1 -right-3 bg-danger text-white rounded-full w-4.5 h-4.5 text-xs flex items-center justify-center">{count}</span>}
           </Link>
         </div>
       </div>

@@ -22,7 +22,7 @@ function CartItem({ item }: CartItemProps) {
         {/* top */}
         <div className="flex items-center">
           <h3 className="text-base xl:text-xl font-medium mr-auto line-clamp-1">{title}</h3>
-          <button aria-label={`刪除購物車 ${title}`} type="button" className="text-[#FF3333] hover-fade text-xl xl:text-2xl flex-0" onClick={() => deleteItem(title)}>
+          <button aria-label={`刪除購物車 ${title}`} type="button" className="text-danger hover-fade text-xl xl:text-2xl flex-0" onClick={() => deleteItem(title)}>
             <PiTrashFill />
           </button>
         </div>
@@ -31,9 +31,9 @@ function CartItem({ item }: CartItemProps) {
         <div className="mt-auto flex items-center gap-1.5 xl:gap-2.5">
           <ins className="text-xl xl:text-2xl font-bold no-underline">${discountedPrice.toLocaleString()}</ins>
           {marketPrice && <del className="hidden md:block text-xl xl:text-2xl font-bold text-black/40">${marketPrice.toLocaleString()}</del>}
-          {!!discount && <span className="hidden md:block text-[10px] xl:text-xs font-medium text-[#FF3333] py-1 px-2 xl:px-3 xl:py-1.5 bg-[#FF3333]/10 rounded-4xl">-{discount}%</span>}
+          {!!discount && <span className="hidden md:block text-[10px] xl:text-xs font-medium text-danger py-1 px-2 xl:px-3 xl:py-1.5 bg-danger/10 rounded-4xl">-{discount}%</span>}
 
-          <div className="ml-auto flex items-center gap-0.5 xl:gap-1.5 bg-[#F0F0F0] rounded-full px-4 py-2 xl:py-2 xl:px-3.5">
+          <div className="ml-auto flex items-center gap-0.5 xl:gap-1.5 bg-surface rounded-full px-4 py-2 xl:py-2 xl:px-3.5">
             <button className="text-base p-1 xl:p-1.5 rounded-full hover:bg-black/5" type="button" aria-label={`減少購物車 ${title} 數量`} onClick={() => decreaseQuantity(title)}>
               <FiMinus />
             </button>

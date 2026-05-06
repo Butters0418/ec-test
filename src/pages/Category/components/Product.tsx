@@ -31,12 +31,12 @@ function Product({ product }: ProductProps) {
           <ul className="flex items-center gap-1">
             {Array.from({ length: floorScore }).map((_, index) => (
               <li key={index}>
-                <LiaStarSolid className="text-[#FFC633] w-4 h-4 xl:w-4.5 xl:h-4.5" />
+                <LiaStarSolid className="text-star w-4 h-4 xl:w-4.5 xl:h-4.5" />
               </li>
             ))}
             {hasHalfStar && (
               <li>
-                <LiaStarHalf className="text-[#FFC633] w-4 h-4 xl:w-4.5 xl:h-4.5" />
+                <LiaStarHalf className="text-star w-4 h-4 xl:w-4.5 xl:h-4.5" />
               </li>
             )}
           </ul>
@@ -49,7 +49,7 @@ function Product({ product }: ProductProps) {
         <div className="mt-0.5 xl:mt-2 flex items-center gap-1.5 xl:gap-2.5">
           <ins className="text-xl xl:text-2xl font-bold no-underline">${discountedPrice.toLocaleString()}</ins>
           {marketPrice && <del className="text-xl xl:text-2xl font-bold line-through text-black/40">${marketPrice.toLocaleString()}</del>}
-          {!!discount && <span className="text-[10px] xl:text-xs font-medium text-[#FF3333] py-1 px-2 xl:px-3 xl:py-1.5 bg-[#FF3333]/10 rounded-4xl">-{discount}%</span>}
+          {!!discount && <span className="text-[10px] xl:text-xs font-medium text-danger py-1 px-2 xl:px-3 xl:py-1.5 bg-danger/10 rounded-4xl">-{discount}%</span>}
         </div>
       </article>
     </li>

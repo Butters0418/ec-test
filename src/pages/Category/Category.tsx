@@ -26,7 +26,7 @@ function Category() {
       <aside className="col-span-1 border border-black/10 rounded-[20px] p-5 h-89.25 hidden xl:block">
         <div className="flex justify-between items-center pb-6 border-b border-black/10">
           <h2 className="text-xl font-bold">Filters</h2>
-          <button type="button" className="hover:bg-[#F0F0F0] p-2 rounded-full transition-colors duration-300">
+          <button type="button" className="hover:bg-surface p-2 rounded-full transition-colors duration-300">
             <LuSlidersVertical className="w-5 h-5 text-black/40" />
           </button>
         </div>
@@ -37,7 +37,7 @@ function Category() {
         <div className="flex justify-between items-end">
           <h1 className="font-bold text-2xl xl:text-4xl">Casual</h1>
           <p className="block xl:hidden text-sm text-black/60 pb-0.5">Showing 1-10 of 100 Products</p>
-          <button type="button" className="bg-[#F0F0F0] p-2 rounded-full block xl:hidden">
+          <button type="button" className="bg-surface p-2 rounded-full block xl:hidden">
             <LuSlidersVertical className="w-3.5 h-3.5 text-black" />
           </button>
         </div>
