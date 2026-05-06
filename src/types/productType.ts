@@ -8,6 +8,6 @@ export interface ProductType {
 }
 
 // 購物車商品 type
-export interface CartProductType extends ProductType {
+export interface CartItemType extends ProductType {
   quantity: number;
 }
