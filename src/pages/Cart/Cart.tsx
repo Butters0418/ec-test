@@ -5,7 +5,24 @@ import CartItem from "./components/CartItem";
 
 function Cart() {
   const cartItems = useCartStore((state) => state.cartItems);
-  console.log(cartItems);
+
+  // subtotal (不含折扣)
+  const subtotal = cartItems.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
+  // 折價金額
+  const discountAmount = cartItems.reduce((total, item) => {
+    if (item.discount) {
+      const discountPrice = Math.floor(item.price * (item.discount / 100));
+      return total + discountPrice * item.quantity;
+    }
+    return total;
+  }, 0);
+
+  // 總計金額
+  const totalPrice = subtotal - discountAmount + 15;
+
   return (
     <>
       <h1 className="mt-1.5 xl:mt-2.5">
@@ -33,11 +50,11 @@ function Cart() {
           <div className="mt-6 space-y-5 text-base xl:text-xl font-extralight">
             <p className="flex justify-between items-center">
               <span className="text-black/60">Subtotal</span>
-              <span className="font-medium">$100</span>
+              <span className="font-medium">${subtotal.toLocaleString()}</span>
             </p>
             <p className="flex justify-between items-center">
               <span className="text-black/60">Discount</span>
-              <span className="font-medium text-[#ff3333]">-$100</span>
+              <span className="font-medium text-[#ff3333]">-${discountAmount.toLocaleString()}</span>
             </p>
             <p className="flex justify-between items-center">
               <span className="text-black/60">Delivery Fee</span>
@@ -46,12 +63,16 @@ function Cart() {
             <hr className="border-black/10" />
             <p className="flex justify-between items-center">
               <span>Total</span>
-              <span className="text-xl xl:text-2xl font-medium">$600</span>
+              <span className="text-xl xl:text-2xl font-medium">${totalPrice.toLocaleString()}</span>
             </p>
           </div>
-          <button className="gap-3 w-full mt-4 rounded-full py-4 xl:py-4.5 xl:mt-6 bg-black flex justify-center items-center text-white" type="button" aria-label="Go to Checkout">
+          <button
+            className="group hover:bg-black/75 transition-colors duration-300 gap-3 w-full mt-4 rounded-full py-4 xl:py-4.5 xl:mt-6 bg-black flex justify-center items-center text-white"
+            type="button"
+            aria-label="Go to Checkout"
+          >
             <p className="text-sm xl:text-base">Go to Checkout</p>
-            <FiArrowRight className="text-xl xl:text-2xl" />
+            <FiArrowRight className="group-hover:translate-x-1 duration-300 text-xl xl:text-2xl" />
           </button>
         </aside>
       </div>
