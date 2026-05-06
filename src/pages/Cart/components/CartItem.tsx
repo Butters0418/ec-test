@@ -33,12 +33,12 @@ function CartItem({ item }: CartItemProps) {
           {marketPrice && <del className="hidden md:block text-xl xl:text-2xl font-bold text-black/40">${marketPrice.toLocaleString()}</del>}
           {!!discount && <span className="hidden md:block text-[10px] xl:text-xs font-medium text-[#FF3333] py-1 px-2 xl:px-3 xl:py-1.5 bg-[#FF3333]/10 rounded-4xl">-{discount}%</span>}
 
-          <div className="ml-auto flex items-center gap-2 xl:gap-2.5 bg-[#F0F0F0] rounded-full px-4 py-2.5 xl:py-3 xl:px-5">
-            <button className="text-base" type="button" aria-label={`減少購物車 ${title} 數量`} onClick={() => decreaseQuantity(title)}>
+          <div className="ml-auto flex items-center gap-0.5 xl:gap-1.5 bg-[#F0F0F0] rounded-full px-4 py-2 xl:py-2 xl:px-3.5">
+            <button className="text-base p-1 xl:p-1.5 rounded-full hover:bg-black/5" type="button" aria-label={`減少購物車 ${title} 數量`} onClick={() => decreaseQuantity(title)}>
               <FiMinus />
             </button>
             <p className="text-sm w-8 text-center">{cartItems.find((cartItem) => cartItem.title === title)?.quantity || 0}</p>
-            <button className="text-base" type="button" aria-label={`增加購物車 ${title} 數量`} onClick={() => addItem(item)}>
+            <button className="text-base p-1 xl:p-1.5 rounded-full  hover:bg-black/5" type="button" aria-label={`增加購物車 ${title} 數量`} onClick={() => addItem(item)}>
               <FiPlus />
             </button>
           </div>

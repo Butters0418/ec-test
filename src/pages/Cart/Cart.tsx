@@ -36,7 +36,7 @@ function Cart() {
             {!!cartItems &&
               cartItems.map((item) => {
                 return (
-                  <li className="pb-4 xl:pb-6 last:pb-0">
+                  <li className="pb-4 xl:pb-6 last:pb-0" key={item.title}>
                     <CartItem key={item.title} item={item} />
                   </li>
                 );
