@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
-import { LuSlidersVertical } from "react-icons/lu";
-
-import type { ProductType } from "@/types/productType";
 import Product from "./components/Product";
+import ProductSkeleton from "./components/ProductSkeleton";
+import { LuSlidersVertical } from "react-icons/lu";
+import type { ProductType } from "@/types/productType";
 
 function Category() {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        await new Promise((resolve) => setTimeout(resolve, 500));
         const response = await fetch("/api/productions.json");
         const products = await response.json();
         setProducts(products.data);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchProducts();
@@ -42,9 +46,13 @@ function Category() {
           </button>
         </div>
 
-        <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-3.5 gap-y-6 md:gap-x-5 md:gap-y-9 mt-7 xl:mt-4">
-          {!!products && products.map((product) => <Product key={product.title} product={product} />)}
-        </ul>
+        {!isLoading && products.length === 0 ? (
+          <p className="mt-7 xl:mt-4 text-black/50">無符合商品</p>
+        ) : (
+          <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-3.5 gap-y-6 md:gap-x-5 md:gap-y-9 mt-7 xl:mt-4">
+            {isLoading ? Array.from({ length: 5 }).map((_, index) => <ProductSkeleton key={index} />) : products.map((product) => <Product key={product.title} product={product} />)}
+          </ul>
+        )}
       </section>
     </div>
   );
